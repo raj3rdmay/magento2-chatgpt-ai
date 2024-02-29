@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Kellton\ChatGptAI\Block\Adminhtml\HelperConfig
+ */
+?>
+  <script>
+       window.ajaxUrl = '<?= /* @noEscape */ $block->getUrl('chatgpt/generate/index'); ?>';
+       window.isEnabled = '<?= /* @noEscape */ $block->isEnabled(); ?>';
+       window.getAppliedArea = '<?= /* @noEscape */ $block->getAppliedArea(); ?>';
+  </script>
+

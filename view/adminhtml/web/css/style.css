@@ -1,0 +1,24 @@
+/**
+ * Copyright © Kellton, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+ .kell_addditional_chatgptai{
+    display: flex;
+    justify-content: space-around;
+}
+.kell_addditional_chatgptai_short_desc{
+    position: relative;
+    top: 33px;
+    left: 46%;
+    display: table-caption !important;
+}
+button[data-index="meta_title_button"], button[data-index="meta_keywords_button"], button[data-index="meta_description_button"] {
+    background: #e3e3e3;
+    border-color: #adadad;
+    color: #514943;
+    text-shadow: none;
+    position: relative;
+    left: 26%;
+    bottom: 24px;
+}

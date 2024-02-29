@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Kellton, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="search_engine_optimization">
+        <container name="meta_title_button" component="Kellton_ChatGptAI/js/categorychatgpt" sortOrder="132">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="title" xsi:type="string" translate="true">Generate With AI</item>
+                    <item name="additionalForGroup" xsi:type="boolean">true</item>
+                    <item name="additionalClasses" xsi:type="string">kell_addditional_chatgptai</item>
+                    <item name="dataScope" xsi:type="string"/>
+                </item>
+            </argument>
+        </container>
+        <container name="meta_keywords_button" component="Kellton_ChatGptAI/js/categorychatgpt" sortOrder="142">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="title" xsi:type="string" translate="true">Generate With AI</item>
+                    <item name="additionalForGroup" xsi:type="boolean">true</item>
+                    <item name="additionalClasses" xsi:type="string">kell_addditional_chatgptai</item>
+                    <item name="dataScope" xsi:type="string"/>
+                </item>
+            </argument>
+        </container>
+        <container name="meta_description_button" component="Kellton_ChatGptAI/js/categorychatgpt" sortOrder="152">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="title" xsi:type="string" translate="true">Generate With AI</item>
+                    <item name="additionalForGroup" xsi:type="boolean">true</item>
+                    <item name="additionalClasses" xsi:type="string">kell_addditional_chatgptai</item>
+                    <item name="dataScope" xsi:type="string"/>
+                </item>
+            </argument>
+        </container>
+    </fieldset>
+</form>

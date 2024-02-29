@@ -1,0 +1,33 @@
+{
+  "name": "raj3rdmay/magento2-chatgpt-ai",
+  "description": "This module help to provide description and seo content",
+  "keywords":[
+   "magento2",
+   "magento",
+   "magento2 extension",
+   "magento2 extension free"
+  ],
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "require": {
+    "php": "7.1.2|7.2.4|~7.3.6|~7.4.0|~7.5.0|~8.1.0|~8.2.0|~8.3.0",
+    "magento/framework": "100.0.0|~103.0.5"
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "authors": [
+    {
+    "name": "Kellton",
+    "email": "info@kellton.com",
+    "role" : "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Kellton\\ChatGptAI\\": ""
+    }
+  }
+}

@@ -1,0 +1,224 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+<!--
+/**
+* Copyright © Kellton, Inc. All rights reserved.
+* See COPYING.txt for license details.
+*/   
+-->    
+    <system>
+        <tab id="kellton" translate="label" sortOrder="2000">
+             <label>Kellton</label>
+        </tab>
+        <section id="kelltonconfig" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>AI Content Generator</label>
+            <tab>kellton</tab>
+            <resource>Kellton_ChatGptAI::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+               <field id="kell_openai_general_secret_key" translate="label" type="password" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>API Secret Key</label>
+                        <depends>
+                            <field id="kelltonconfig/general/enable">1</field>
+                        </depends>
+                </field>
+                <!-- <field id="chatgpt_area" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                   <label>ChatGpt Applied Areas</label>        
+                   <source_model>Kellton\ChatGptAI\Model\Config\Source\ListArea</source_model>
+                   <depends>
+                        <field id="kelltonconfig/general/enable">1</field>
+                    </depends>
+                </field> -->
+            </group>
+            <group id="product_configuration" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Configuration</label>
+                <field id="enable_product" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="kell_product_attributes" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Content Based on Custom Attributes</label>
+                   <comment>Specify the attribute codes separated by spaces</comment>
+                </field>
+                <field id="pro_model_name" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                   <label>ChatGpt Model</label>        
+                   <source_model>Kellton\ChatGptAI\Model\Config\Source\ListModel</source_model>
+                   <comment>gpt-3.5-turbo is a more efficient GPT-3.5 model optimized for chat.</comment>
+                   </field>
+                   <field id="kell_pro_temperature" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Temperature</label>
+                   <comment>What sampling temperature should be applied, ranging from 0 to 2? Increased values such as 0.8 result in more randomness in the output, whereas lower values like 0.2 render it more focused and deterministic.</comment>
+                </field>
+
+                <field id="kell_pro_short_desc_max_tokens" translate="label" type="text" sortOrder="1"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Short Description Maximum Words</label>
+                   <comment>Please specify a number between 1 and 3100 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+
+                <field id="kell_pro_desc_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description Maximum Words</label>
+                   <comment>Please specify a number between 1 and 3900 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+
+                <field id="kell_pro_meta_title_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Title Maximum Words</label>
+                   <comment>Please specify a number between 1 and 256 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+              
+               <field id="kell_pro_meta_keywords_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords Maximum Words</label>
+                   <comment>Please specify a number between 1 and 256 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+                <field id="kell_pro_meta_desc_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Description Maximum Words</label>
+                   <comment>Please specify a number between 1 and 1000 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+                <field id="kell_short_desc_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Short Description Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME} {CATEGORY} {COLOR}.</comment>
+                </field>
+                <field id="kell_desc_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME} {CATEGORY} {COLOR}.</comment>
+                </field>
+                <field id="kell_meta_title_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Title Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME} {CATEGORY} {COLOR}.</comment>
+                </field>
+                <field id="kell_meta_keywords_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME} {CATEGORY} {COLOR}.</comment>
+                </field>
+                <field id="kell_meta_description_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Description Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME} {CATEGORY} {COLOR}.</comment>
+                </field>
+                <depends>
+                    <field id="kelltonconfig/general/enable">1</field>
+                </depends>
+            </group>
+           <group id="category_configuration" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category Configuration</label>
+                <field id="enable_category" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cat_model_name" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                   <label>Model Name</label>        
+                   <source_model>Kellton\ChatGptAI\Model\Config\Source\ListModel</source_model>
+                   <comment>gpt-3.5-turbo is a more efficient GPT-3.5 model optimized for chat.</comment>
+                   </field>
+
+                   <field id="kell_cat_temperature" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Temperature</label>
+                   <comment>What sampling temperature should be applied, ranging from 0 to 2? Increased values such as 0.8 result in more randomness in the output, whereas lower values like 0.2 render it more focused and deterministic.</comment>
+                </field>
+
+                <field id="kell_cat_desc_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description Maximum Words</label>
+                   <comment>Please specify a number between 1 and 3900 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+
+                <field id="kell_cat_meta_title_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Title Maximum Words</label>
+                   <comment>Please specify a number between 1 and 256 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+              
+               <field id="kell_cat_meta_keywords_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords Maximum Words</label>
+                   <comment>Please specify a number between 1 and 256 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+                <field id="kell_cat_meta_desc_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords Maximum Words</label>
+                   <comment>Please specify a number between 1 and 1000 as the maximum limit for generating tokens in the completion.</comment>
+                </field>
+                <field id="kell_desc_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME}.</comment>
+                </field>
+                <field id="kell_meta_title_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Title Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME}.</comment>
+                </field>
+                <field id="kell_meta_keywords_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME}.</comment>
+                </field>
+                <field id="kell_meta_description_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Description Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME}.</comment>
+                </field>
+                <depends>
+                    <field id="kelltonconfig/general/enable">1</field>
+                </depends>
+            </group>
+            <group id="cmspage_configuration" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>CMS Pages Configuration</label>
+                <field id="enable_cmspage" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cmspage_model_name" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                   <label>Model Name</label>        
+                   <source_model>Kellton\ChatGptAI\Model\Config\Source\ListModel</source_model>
+                   <comment>gpt-3.5-turbo is a more efficient GPT-3.5 model optimized for chat.</comment>
+                </field>
+                <field id="kell_temperature" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Temperature</label>
+                   <comment>What sampling temperature should be applied, ranging from 0 to 2? Increased values such as 0.8 result in more randomness in the output, whereas lower values like 0.2 render it more focused and deterministic.</comment>
+                </field>
+                <field id="kell_desc_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description Maximum Words</label>
+                   <comment>Please specify a number between 1 and 3900 as the maximum limit for generating words in the completion.</comment>
+                </field>
+                <field id="kell_meta_title_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Title Maximum Words</label>
+                   <comment>Please specify a number between 1 and 256 as the maximum limit for generating words in the completion.</comment>
+                </field>
+                <field id="kell_meta_keywords_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords Maximum Words</label>
+                   <comment>Please specify a number between 1 and 256 as the maximum limit for generating words in the completion.</comment>
+                </field>
+                <field id="kell_meta_desc_max_tokens" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords Maximum Words</label>
+                   <comment>Please specify a number between 1 and 1000 as the maximum limit for generating words in the completion.</comment>
+                </field>
+                <field id="kell_desc_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME}.</comment>
+                </field>
+                <field id="kell_meta_title_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Title Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME}.</comment>
+                </field>
+                <field id="kell_meta_keywords_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME}.</comment>
+                </field>
+                <field id="kell_meta_description_prompt" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Description Prompt</label>
+                    <validate>required-entry</validate>
+                    <comment>You can utilize the following variables within the prompt: {NAME}.</comment>
+                </field>
+                <depends>
+                    <field id="kelltonconfig/general/enable">1</field>
+                </depends>
+            </group>
+        </section>
+    </system>
+</config>

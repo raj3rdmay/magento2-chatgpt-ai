@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © Kellton, Inc. All rights reserved.
+* See COPYING.txt for license details.
+*/     
+-->    
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>    
+        <kelltonconfig>
+            <general>
+            <enable>1</enable>
+            </general>
+            <product_configuration>
+                <pro_model_name>gpt-3.5-turbo</pro_model_name>
+                <kell_pro_temperature>0.6</kell_pro_temperature>
+                <kell_pro_short_desc_max_tokens>3000</kell_pro_short_desc_max_tokens>
+                <kell_pro_desc_tokens>3800</kell_pro_desc_tokens>
+                <kell_pro_meta_title_max_tokens>200</kell_pro_meta_title_max_tokens>
+                <kell_pro_meta_keywords_max_tokens>200</kell_pro_meta_keywords_max_tokens>
+                <kell_pro_meta_desc_max_tokens>1000</kell_pro_meta_desc_max_tokens>
+                <kell_short_desc_prompt>Please furnish a product short description for {NAME}, under {CATEGORY} highlighting its main features and benefits.</kell_short_desc_prompt>
+                <kell_desc_prompt>Please furnish a product description for {NAME}, under {CATEGORY} highlighting its main features and benefits.</kell_desc_prompt>
+                <kell_meta_title_prompt>Generate a compelling product meta title one word for {NAME}</kell_meta_title_prompt>
+                <kell_meta_keywords_prompt>Generate a compelling product meta keywords  for {NAME}</kell_meta_keywords_prompt>
+                <kell_meta_description_prompt>Generate a compelling product meta description for {NAME}</kell_meta_description_prompt>
+            </product_configuration>
+            <category_configuration>
+                <cat_model_name>gpt-3.5-turbo</cat_model_name>
+                <kell_cat_temperature>0.6</kell_cat_temperature>
+                <kell_cat_short_desc_max_tokens>3000</kell_cat_short_desc_max_tokens>
+                <kell_cat_desc_tokens>3800</kell_cat_desc_tokens>
+                <kell_cat_meta_title_max_tokens>200</kell_cat_meta_title_max_tokens>
+                <kell_cat_meta_keywords_max_tokens>200</kell_cat_meta_keywords_max_tokens>
+                <kell_cat_meta_desc_max_tokens>1000</kell_cat_meta_desc_max_tokens>
+                <kell_desc_prompt>Please furnish a category description for {NAME}, highlighting its main features and benefits.</kell_desc_prompt>
+                <kell_meta_title_prompt>Generate a compelling category meta title one word for {NAME}</kell_meta_title_prompt>
+                <kell_meta_keywords_prompt>Generate a compelling category meta keywords for {NAME}</kell_meta_keywords_prompt>
+                <kell_meta_description_prompt>Generate a compelling category meta description for {NAME}</kell_meta_description_prompt>
+            </category_configuration>
+            <cmspage_configuration>
+                <cmspage_model_name>gpt-3.5-turbo</cmspage_model_name>
+                <kell_temperature>0.6</kell_temperature>
+                <kell_desc_tokens>3000</kell_desc_tokens>
+                <kell_meta_title_max_tokens>200</kell_meta_title_max_tokens>
+                <kell_meta_keywords_max_tokens>200</kell_meta_keywords_max_tokens>
+                <kell_meta_desc_max_tokens>1000</kell_meta_desc_max_tokens>
+                <kell_desc_prompt>Please furnish a cms page description for {NAME}, highlighting its main features and benefits.</kell_desc_prompt>
+                <kell_meta_title_prompt>Generate a compelling cms page meta title one word for {NAME}</kell_meta_title_prompt>
+                <kell_meta_keywords_prompt>Generate a compelling cms page meta keywords for {NAME}</kell_meta_keywords_prompt>
+                <kell_meta_description_prompt>Generate a compelling cms page meta description for {NAME}</kell_meta_description_prompt>
+            </cmspage_configuration>
+        </kelltonconfig>    
+    </default>
+</config>
